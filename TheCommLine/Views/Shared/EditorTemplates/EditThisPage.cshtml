@@ -1,0 +1,20 @@
+﻿@*Editor*@
+@using TheCommLine.Helpers
+@model CMS.Core.ViewModels.EditThisPage
+
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginRow())
+        {
+            using (Ajax.BeginForm(Model))
+            {
+                @CustomHelpers.HiddenForModel(Model)
+                @Html.CancelButton().Content(Model.CancelButtonText).HtmlAttributes(new { OnClick = "hideEditMode()" })
+                @CustomHelpers.ShowScreenSize()
+            }
+        }
+    }
+}

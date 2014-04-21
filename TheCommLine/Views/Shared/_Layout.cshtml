@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Comm Line</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/google-analytics.js"></script>   
+	<!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.dataviz.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.all.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    @Scripts.Render("~/bundles/")
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    
+    <script>
+        function showEditMode() {
+            $(".marker-edit-well").addClass("edit-well");
+            $(".marker-edit-btn").removeClass("hidden");
+        }
+        function hideEditMode() {
+            $(".marker-edit-well").removeClass("edit-well");
+            $(".marker-edit-btn").addClass("hidden");
+        }
+    </script>
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

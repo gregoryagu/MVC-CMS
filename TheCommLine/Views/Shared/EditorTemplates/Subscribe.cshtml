@@ -1,0 +1,18 @@
+﻿@*Editor Template*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Subscribe
+@using (Html.BeginContainer())
+{
+    using (Html.BeginEditableSection())
+    {
+        using (Html.BeginEditableRow())
+        {
+            using (Ajax.BeginForm(Model))
+            {
+                @Html.EditorFor(m => m.SubscribeText)
+                @Html.EditorFor(m => m.SubscribeButton)
+                @CustomHelpers.EditToolbar(Model)
+            }
+        }
+    }
+}

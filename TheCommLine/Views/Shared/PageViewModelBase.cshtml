@@ -1,0 +1,18 @@
+﻿@using Core
+@model PageViewModelBase
+
+
+    @Html.DisplayFor(m => m.NavBar)
+
+    @Html.DisplayFor(m => m.Header)
+
+    @Html.DisplayForModel() 
+
+    @Html.DisplayFor(m => m.Footer)
+
+    @if (Model.IsLoggedIn) {
+        @Html.DisplayFor(m => m.EditThisPage)
+    }
+}
+
+

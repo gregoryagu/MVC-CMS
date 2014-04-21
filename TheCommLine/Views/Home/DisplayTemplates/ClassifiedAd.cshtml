@@ -1,0 +1,79 @@
+﻿@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Classifieds.ClassifiedAd
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginEditableSection())
+        {
+            using (Html.BeginRow())
+            {
+                using (@Html.BeginForm())
+                {
+                    using (Html.BeginColumn(6))
+                    {
+                        using (Html.BeginFormGroup())
+                        {
+                            @Html.DisplayFor(m => m.NameLabel)
+                            @Html.FormTextBoxFor(m => m.ClassifiedAdEntity.Name)
+                        }
+                        using (Html.BeginFormGroup())
+                        {
+                            @Html.DisplayFor(m => m.EmailAddressLabel)
+                            @Html.FormTextBoxFor(m => m.ClassifiedAdEntity.EmailAddress)
+                        }
+
+                        using (Html.BeginFormGroup())
+                        {
+                            @Html.DisplayFor(m => m.PhoneNumberLabel)
+                            @Html.FormTextBoxFor(m => m.ClassifiedAdEntity.PhoneNumber)
+                        }
+
+                        using (Html.BeginFormGroup())
+                        {
+                            @Html.DisplayFor(m => m.NumberOfIssuesLabel)
+                            @Html.FormTextBoxFor(m => m.ClassifiedAdEntity.NumberOfIssues)
+                        }
+
+                        using (Html.BeginFormGroup()) {
+                            @Html.DisplayFor(m=> m.CategoryLabel)
+                            @Html.DropDownListFor(m=> m.SelectedAdCategoryId, new SelectList(Model.AdCategories.Items, "Value", "Text"), new {@class="form-control"})                        
+    
+                            @*<select class="form-control">
+                                <option value="SeekingWork">Seeking Work</option>
+                                <option value="EmploymentOpportunities">Employment Opportunities</option>
+                                <option value="BusinessOpportunities">Business Opportunities</option>
+                                <option value="ForSale">For Sale</option>
+                                <option value="Wanted">Wanted</option>
+                                <option value="RealEstateForSale">Real Estate For Sale</option>
+                                <option value="Rentals">Rentals: Home/Office/Apt</option>
+                                <option value="Personals">Personals</option>
+                            </select>*@
+                        }
+                        
+
+                    }
+
+                    using (Html.BeginColumn(6))
+                    {
+                        using (Html.BeginFormGroup())
+                        {
+                            @Html.DisplayFor(m => m.AdTextLabel)
+                            @Html.FormTextAreaFor(m => m.ClassifiedAdEntity.AdText, 12)
+                        }
+                    }
+                    
+
+                }
+            }
+            using (Html.BeginRow()) {
+                <button type="submit" class="btn btn-default">Submit</button>
+            }
+        }
+    }
+}
+
+
+
+

@@ -1,0 +1,18 @@
+﻿@*Editor*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Contact.PageHeader
+
+@using (Html.BeginContainer())
+{
+    using (Html.BeginEditWell())
+    {
+        using (Html.BeginEditableRow())
+        {
+            using (Ajax.BeginForm(Model))
+            {
+                @Html.EditorFor(m => m.PageTitle)
+                @CustomHelpers.EditToolbar(Model)
+            }
+        }
+    }
+}

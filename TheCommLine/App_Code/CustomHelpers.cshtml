@@ -1,0 +1,34 @@
+﻿@using System.Web.Mvc.Ajax
+@using Core
+@using TheCommLine.App_Code
+@using TheCommLine.Helpers
+@helper ShowScreenSize()
+{
+    <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
+}
+
+@helper EditToolbar(ViewModelBase model)
+{
+    <input name="Id" type="hidden" value="@model.HtmlId" />
+    @MvcIntrinsics.Html.Tag("button").Class("btn btn-top-right btn-default").Content("Save").Type("submit").HtmlAttributes(new { value="Save", name="RequestedAction"})
+    @MvcIntrinsics.Html.Tag("button").Class("btn btn-top-right2 btn-default").Content("Cancel").Type("submit").HtmlAttributes(new { value="Cancel", name="RequestedAction"})
+}
+
+@helper HiddenForModel(ViewModelBase model) {
+    if (model == null)
+    { throw new ArgumentNullException("model"); }
+    <input name="Id" type="hidden" value="@model.HtmlId" />
+}
+
+@helper AddEditButton(ViewModelBase model)
+{
+    if (model == null)
+    { throw new ArgumentNullException("model"); }
+
+    using (MvcIntrinsics.Ajax.BeginForm(model))
+    {
+        <input name="Id" type="hidden" value="@model.HtmlId" />
+        @MvcIntrinsics.Html.Tag("button").Class("btn btn-edit-well btn-default marker-edit-btn hidden").Type("submit").Content("Edit").HtmlAttributes(new { value = "Edit", name = "RequestedAction" })
+    }
+}
+

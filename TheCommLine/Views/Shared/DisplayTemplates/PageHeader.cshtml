@@ -1,0 +1,19 @@
+﻿@*Display*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Contact.PageHeader
+           
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginEditableSection())
+        {
+            using (Html.BeginRow())
+            {
+                @Html.Tag("span").Class("h2 col-md-12 page-header").Content(Model.PageTitle)
+                @CustomHelpers.AddEditButton(Model)
+            }
+        }
+    }
+}

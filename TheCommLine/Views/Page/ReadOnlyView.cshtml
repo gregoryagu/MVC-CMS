@@ -1,0 +1,50 @@
+﻿@using TheCommLine.Data.Entities
+@model TheCommLine.ViewModels.AppViewModel
+@{
+    ViewBag.Title = @Model.AppTitle;
+}
+
+
+<div class="container" id="content">
+    
+    
+    <h1>
+        @if (String.IsNullOrEmpty(Model.CurrentPage.Title)) {
+            @Html.Raw("Under Construction")
+        }
+        else {
+            @Model.CurrentPage.Title
+        }
+        
+    </h1>
+
+
+    @foreach (PageRow row in Model.CurrentPage.PageRows) {
+        
+        <div class="row" >
+            
+            @foreach (RowColumn column in row.RowColumns)
+            {
+                <div class="col-md-12">
+                    
+                    @if (String.IsNullOrEmpty(column.Content)) {
+                        @Html.Raw("Edit this page to add your content here.");
+                    }
+                    else {
+                        @Html.Raw(column.Content);
+                    }
+                </div>
+            }
+        </div>
+        
+    }
+    
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Admin")) {
+            @Ajax.ActionLink("Edit this page", "ShowEditPage", "Page", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "content" })
+        }
+    }
+
+    </div>

@@ -1,0 +1,17 @@
+﻿@*EditTemplate*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.MagHeader
+
+@using (Html.BeginContainer()) {
+        using (Html.BeginEditableSection()) {
+            using (Html.BeginEditableRow()) {
+                using (Ajax.BeginForm(Model)) {
+                    @Html.EditorFor(m => m.MagTitle)
+                    @Html.EditorFor(m => m.MagDate)
+                    @Html.EditorFor(m => m.DownloadText)
+                    @CustomHelpers.EditToolbar(Model)
+                }
+            }
+        }
+    }
+

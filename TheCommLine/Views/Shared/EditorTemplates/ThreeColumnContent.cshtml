@@ -1,0 +1,25 @@
+﻿@*Editor*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.ThreeColumnContent
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginEditWell())
+        {
+            using (Html.BeginRow())
+            {
+                using (Ajax.BeginForm(Model))
+                {
+                    @Html.Kendo().Editor().Encode(false).Name("Column1.Data").HtmlAttributes(new { @class = "col-md-12" }).Value(@Model.Column1.Data)
+                    @Html.Kendo().Editor().Encode(false).Name("Column2.Data").HtmlAttributes(new { @class = "col-md-12" }).Value(@Model.Column2.Data)
+                    @Html.Kendo().Editor().Encode(false).Name("Column3.Data").HtmlAttributes(new { @class = "col-md-12" }).Value(@Model.Column3.Data)
+                    @CustomHelpers.EditToolbar(Model)
+                }
+            }
+        }
+    }
+}
+
+

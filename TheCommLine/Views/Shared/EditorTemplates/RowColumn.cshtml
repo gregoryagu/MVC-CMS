@@ -1,0 +1,7 @@
+﻿@model TheCommLine.Data.Entities.RowColumn
+<div class="editorRow">
+    @using (Html.BeginCollectionItem("rowColumn")) {
+        Item: @Html.TextBoxFor(x => x.RowColumnId);
+        Value: @Html.TextBoxFor(x => x.Content);
+    }
+</div>

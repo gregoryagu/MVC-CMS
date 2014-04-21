@@ -1,0 +1,25 @@
+﻿@*Display Template*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.MagHeader
+
+
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax, "magazine"))
+{
+    using (Html.BeginContainer()) {
+        using (Html.BeginEditableSection()) {
+            using (Html.BeginRow(htmlClass:"page-header")) {
+                using (Html.BeginColumn(4)) {
+                    @Html.Tag("em").Content(Model.MagTitle).Class("h3 reverse")
+                }
+                using (Html.BeginColumn(4)) {
+                    @Html.Tag("span").Content(Model.MagDate).Class("h3 reverse")
+                }
+                using (Html.BeginColumn(4)) {
+                    @Html.Tag("a").Content(Model.DownloadText).Class("pull-right h5 white-text").Style("text-decoration: underline;")
+                }
+                @CustomHelpers.AddEditButton(Model)
+            }
+        }
+    }
+}

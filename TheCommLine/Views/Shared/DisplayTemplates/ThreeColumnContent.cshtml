@@ -1,0 +1,28 @@
+﻿
+
+@*Display*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.ThreeColumnContent
+
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginEditableSection())
+        {
+            using (Html.BeginRow())
+            {
+                @Html.DisplayFor(m => m.Column1)
+
+                @Html.DisplayFor(m => m.Column2)
+
+                @Html.DisplayFor(m => m.Column3)
+            
+                @CustomHelpers.AddEditButton(Model)
+            }
+        }
+    }
+}
+
+

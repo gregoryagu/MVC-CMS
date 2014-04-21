@@ -1,0 +1,20 @@
+﻿@*Display*@
+@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Content
+           
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax))
+{
+    using (Html.BeginContainer())
+    {
+        using (Html.BeginEditableSection())
+        {
+            using (Html.BeginRow())
+            {
+                using (Html.BeginColumn(12)) {
+                    @Html.Tag("p").Content(Model.Data)
+                    @CustomHelpers.AddEditButton(Model)
+                }
+            }
+        }
+    }
+}

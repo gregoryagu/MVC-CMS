@@ -1,0 +1,21 @@
+﻿@using TheCommLine.Helpers
+@model TheCommLine.ViewModels.Subscribe
+@*Display Template*@
+
+@using (Html.BeginRegion(Model.HtmlId, Model.IsAjax, "magazine")) {
+    using (Html.BeginContainer()) {
+        using (Html.BeginEditableSection()) {
+            using (Html.BeginRow(htmlClass:"padded-row")) {
+                using (Ajax.BeginForm(Model, new { @class = "form-inline text-center", role = "form" })) {
+                    @Html.Tag("label").Class("reverse h4").Content(Model.SubscribeText).HtmlAttributes(new { @for = "txtEmail" })
+                    @Html.TextBoxFor(m => m.EmailAddress, null, new { id = "txtEmail", placeholder = "Enter email", @class = "form-control", style="margin-left: 25px; margin-right: 25px;"  })
+                    @Html.Tag("button").Type("submit").Class("btn btn-default btn-success").Content(Model.SubscribeButton).HtmlAttributes(new { value = "Subscribe", Name = "RequestedAction" })
+                }
+            }
+        @CustomHelpers.AddEditButton(Model)
+        }
+
+    }
+}
+    
+
