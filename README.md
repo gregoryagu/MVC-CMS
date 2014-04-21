@@ -17,7 +17,7 @@ The primary workflow is:
 3. Creating a View for the ViewModel.
 
 A PageViewModel is simple class with whatever properties needs to be exposed to the View. For example, a Page with a Header would be:
-    public class HomeViewModel : ViewModelBase{
+     public class HomeViewModel : ViewModelBase{
 
     [MapToDb]
      public string Header{get;set;}
