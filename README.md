@@ -28,7 +28,8 @@ A PageViewModel is simple class with whatever properties needs to be exposed to 
 Note the MapToDb attribute. At runtime, reflection is used to find all properties which are to be mapped to the database. The values are then retrieved automatically and set.
 
 The view then uses the ViewModel as it's model:
-     <h1>Model.Header</h1>.
+   
+   <h1>Model.Header</h1>.
 
 
 And so, with no additional code, you have a data driven website.
