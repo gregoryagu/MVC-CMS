@@ -29,7 +29,7 @@ Note the MapToDb attribute. At runtime, reflection is used to find all propertie
 
 The view then uses the ViewModel as it's model:
    
-   &lt;h1&gt;Model.Header&lt;/h1&gt;.
+   &lt;h1&gt;@Model.Header&lt;/h1&gt;.
 
 
 And so, with no additional code, you have a data driven website.
