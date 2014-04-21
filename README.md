@@ -1,9 +1,6 @@
 MVC-CMS
 =======
 
-
-
-mvc.cms
 A lightweight ASP.net MVC CMS
 
 The goal of this project is to help MVC developers create data-driven websites using Bootstrap and Entity Framework Code First.
@@ -20,18 +17,18 @@ The primary workflow is:
 3. Creating a View for the ViewModel.
 
 A PageViewModel is simple class with whatever properties needs to be exposed to the View. For example, a Page with a Header would be:
-public class HomeViewModel : ViewModelBase{
+    public class HomeViewModel : ViewModelBase{
 
-[MapToDb]
-public string Header{get;set;}
+    [MapToDb]
+     public string Header{get;set;}
 
-}
+     }
 
 
 Note the MapToDb attribute. At runtime, reflection is used to find all properties which are to be mapped to the database. The values are then retrieved automatically and set.
 
 The view then uses the ViewModel as it's model:
-<h1>Model.Header</h1>.
+     <h1>Model.Header</h1>.
 
 
 And so, with no additional code, you have a data driven website.
